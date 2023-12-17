@@ -1,6 +1,6 @@
 import java.util.HashMap;
 public class Set<E>implements SetI<E>{
-    private HashMap<E,Boolean> hashMap = new HashMap<E,Boolean>();
+    private final HashMap<E,Boolean> hashMap = new HashMap<E,Boolean>();
     public int size() {
         return hashMap.size();
     }
