@@ -31,23 +31,47 @@ public class mySet<E> implements Set<E>{
         return hashMap.remove(o);
     }
     public boolean containsAll(Collection<?> c) {
-
-        return false;
+        for(Object e:c){
+            if(!hashMap.containsKey(e)) return false;
+        }
+        return true;
     }
     public boolean addAll(Collection<? extends E> c) {
-        return false;
+        boolean isAdd = false;
+        for (E e:c){
+            isAdd = true;
+            add(e);
+        }
+        return isAdd;
     }
     public boolean retainAll(Collection<?> c) {
-        return false;
+        boolean isChange = false;
+        Iterator<E> hashMapIterator = iterator();
+        while (hashMapIterator.hasNext()){
+            E e = iterator().next();
+            if (!c.contains(e)){
+                hashMapIterator.remove();
+                isChange = true;
+            }
+        }
+        return isChange;
     }
     public boolean removeAll(Collection<?> c) {
-        return false;
+        boolean isChange = false;
+        Iterator<E> hashMapIterator = iterator();
+        while(hashMapIterator.hasNext()){
+            E e = hashMapIterator.next();
+            if(c.contains(e)){
+                hashMapIterator.remove();
+                isChange = true;
+            }
+        }
+        return isChange;
     }
     public void clear() {
-
+        hashMap.clear();
     }
-
-
+//    Legacy Code
 //    private HashMap<E,Boolean> hashMap = new HashMap<E,Boolean>();
 //    public int size() {
 //        return hashMap.size();

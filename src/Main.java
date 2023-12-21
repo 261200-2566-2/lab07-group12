@@ -5,13 +5,14 @@ import java.util.HashMap;
 public class Main {
     public static void main(String[] args) {
         mySet<String> a = new mySet<>();
-//        mySet<String> b = new mySet<>();
+        mySet<String> b = new mySet<>();
         a.add("aa");
-        a.add("bb");
+        a.add("aa");
 //        a.add("cc");
 //        b.add("bb");
 //        b.add("cc");
-//        b.add("aa");
+        b.add("aa");
+        a.addAll(b);
 ////        b.add("gg");
 ////        System.out.println(a.containsAll(b)?"Yes":"No");
 ////        System.out.println(a.removeAll(b)?"Yes":"No");
@@ -22,6 +23,7 @@ public class Main {
 //        System.out.println(a.size());
 //        a.clear();
 //        System.out.println(a.size());
-        System.out.println(a.iterator().hasNext()?"has next":"no");
+//        System.out.println(a.iterator().hasNext()?"has next":"no");
+        System.out.println(a.size());
     }
 }
